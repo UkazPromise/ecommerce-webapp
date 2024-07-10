@@ -1,27 +1,13 @@
-import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Navbar from '../components/Navbar'
+import React from 'react';
 import Body from '../components/Body';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
-import Purchase from './Purchase';
 
-const Mainpage = () => {
-  const [cart, setCart] = useState([]);
-
-  const addToCart = (item) => {
-    setCart((prevCart) => [...prevCart, item]);
-  };
-
+const Mainpage = ({ addToCart }) => {
   return (
     <div>
-      <Navbar cartItemCount={cart.length} />
       <Hero />
-      <Routes>
-        <Route path="/" element={<Body addToCart={addToCart} />} />
-        <Route path="/shop" element={<Body addToCart={addToCart} />} />
-        <Route path="/purchase" element={<Purchase cart={cart} />} />
-      </Routes>
+      <Body addToCart={addToCart} />
       <Footer />
     </div>
   );

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
-const Navbar = ({ cartItemCount }) => {
+const Navbar = ({ cart = [] }) => {
   const navigate = useNavigate();
 
   return (
@@ -23,8 +23,10 @@ const Navbar = ({ cartItemCount }) => {
               onClick={() => navigate('/purchase')}
               className='cursor-pointer'
             />
-            {cartItemCount > 0 && (
-              <div className='absolute top-0 right-0 rounded-full bg-red-500 w-4 h-4 text-xs text-white text-center'>{cartItemCount}</div>
+            {cart.length > 0 && (
+              <div className='absolute top-0 right-0 rounded-full bg-red-500 w-4 h-4 text-xs text-white text-center'>
+                {cart.length}
+              </div>
             )}
           </div>
           <p className='border rounded-lg border-spacing-4 text-center w-28 cursor-pointer bg-textColor1 text-textColor2'>Sign Up</p>

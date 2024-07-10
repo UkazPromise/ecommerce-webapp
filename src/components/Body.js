@@ -45,7 +45,7 @@ const Body = ({ addToCart }) => {
   const handleAddToCart = (index, product) => {
     const state = productStates[index];
     if (state.selectedSize) {
-      addToCart({ id: product.id, name: product.name, image: product.image, size: state.selectedSize, quantity: state.quantity, totalCost: state.totalCost });
+      addToCart({ ...product, size: state.selectedSize, quantity: state.quantity, totalCost: state.totalCost });
     } else {
       alert('Please select a size first.');
     }
