@@ -15,11 +15,10 @@ const Purchase = ({ cart, removeFromCart }) => {
   };
 
   const handleApplyCoupon = () => {
-    // Assuming the coupon code 'DISCOUNT' is valid
     if (couponCode === 'DISCOUNT') {
       setMessage('Coupon activated');
       setTimeout(() => {
-        navigate('/checkout'); // Navigate to the checkout page
+        navigate('/checkout');
       }, 2000);
     } else {
       setMessage('Invalid coupon code');
