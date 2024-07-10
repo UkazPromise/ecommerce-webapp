@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const Purchase = ({ cart, removeFromCart }) => {
   const [couponCode, setCouponCode] = useState('');
@@ -30,7 +31,8 @@ const Purchase = ({ cart, removeFromCart }) => {
   const grandTotal = subtotal + shippingFee;
 
   return (
-    <div className='w-full flex overflow-hidden bg-textColor2'>
+    <>
+      <div className='w-full flex overflow-hidden bg-textColor2'>
       <div className='flex flex-col justify-start items-center my-6 bg-textColor2 w-3/5'>
         <div className='h-auto p-4 w-full'>
           {cart.length === 0 ? (
@@ -58,7 +60,7 @@ const Purchase = ({ cart, removeFromCart }) => {
           )}
         </div>
       </div>
-      <div className='flex flex-col justify-start items-center my-12 bg-textColor2 w-2/5'>
+      <div className='flex flex-col justify-start items-center my-14 bg-textColor2 w-2/5'>
         <div className='flex flex-col justify-between items-center border rounded-lg p-4 mx-4 w-full border-textColor1'>
           <p className='font-semibold text-lg'>Order Summary</p>
           <div className='flex justify-between w-full mb-2'>
@@ -99,6 +101,8 @@ const Purchase = ({ cart, removeFromCart }) => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

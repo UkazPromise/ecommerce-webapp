@@ -70,7 +70,7 @@ const Body = ({ addToCart }) => {
         {displayedProducts.map((product, displayIndex) => {
           const productIndex = (currentPage - 1) * itemsPerPage + displayIndex;
           return (
-            <div key={product.id} className='border rounded-lg border-spacing-4 w-52 h-96 p-4'>
+            <div key={product.id} className='border rounded-lg border-spacing-4 w-52 h-96 p-4 shadow-xl'>
               <img src={product.image} alt={product.name} className='w-44 h-52'/>
               <p className='text-xs my-2'>{product.name}</p>
               <div className='flex space-x-2 mb-4'>
@@ -84,27 +84,32 @@ const Body = ({ addToCart }) => {
                   </p>
                 ))}
               </div>
-              <div className='border rounded-lg border-spacing-4 w-full flex justify-center items-center text-xs border-textColor1'>
-                <button
-                  className='border-r px-2 py-1'
-                  onClick={() => handleQuantityChange(productIndex, -1)}
-                >
-                  -
-                </button>
-                <span>{productStates[productIndex].quantity}</span>
-                <button
-                  className='border-l px-2 py-1'
-                  onClick={() => handleQuantityChange(productIndex, 1)}
-                >
-                  +
-                </button>
-                <p className='my-2 text-center'>${productStates[productIndex].totalCost.toFixed(2)}</p>
-                <button
-                  className='border rounded-lg border-spacing-4 ml-4 w-28 h-8 text-center text-xs bg-textColor1 text-textColor2'
-                  onClick={() => handleAddToCart(productIndex, product)}
-                >
-                  Add to cart
-                </button>
+              <p className='my-2 font-semibold'>${productStates[productIndex].totalCost.toFixed(2)}</p>
+              <div className='flex'>
+                  <div className='border rounded-lg border-spacing-4 w-full flex justify-center items-center text-xs border-textColor1'>
+                    <button
+                      className='border-r px-2 py-1'
+                      onClick={() => handleQuantityChange(productIndex, -1)}
+                    >
+                      -
+                    </button>
+                    <span>{productStates[productIndex].quantity}</span>
+                    <button
+                      className='border-l px-2 py-1'
+                      onClick={() => handleQuantityChange(productIndex, 1)}
+                    >
+                      +
+                    </button>
+                    
+                  </div>
+                  <div>
+                    <button
+                        className='border rounded-lg border-spacing-4 ml-4 w-28 h-8 text-center text-xs bg-textColor1 text-textColor2'
+                        onClick={() => handleAddToCart(productIndex, product)}
+                      >
+                        Add to cart
+                    </button>
+                  </div>
               </div>
             </div>
           );

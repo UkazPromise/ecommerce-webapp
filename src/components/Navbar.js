@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Navbar = ({ cart = [] }) => {
   const navigate = useNavigate();
@@ -9,10 +9,10 @@ const Navbar = ({ cart = [] }) => {
   return (
     <div className='w-[1444px] h-[60px] bg-bgColor text-textColor1'>
       <div className='flex mx-8 py-4 space-x-96'>
-        <span className='flex space-x-8'>
-          <p>Home</p>
-          <p>About Us</p>
-          <p className='text-textColor font-semibold'>Shop</p>
+      <span className='flex space-x-8'>
+          <Link to="/body" onClick={() => window.location.reload()}>Home</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/purchase" className='text-textColor font-semibold'>Shop</Link>
         </span>
         <span className='place-content-center text-textColor font-bold font-kalam'>Timbu Shop</span>
         <span className='flex space-x-8 ml-12'>
