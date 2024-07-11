@@ -65,15 +65,16 @@ const Body = ({ addToCart }) => {
   const displayedProducts = products.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   return (
-    <div className='flex flex-col items-center overflow-hidden'>
-      <div className='grid grid-cols-3 gap-4'>
+    <div className='flex-col my-12 overflow-hidden bg-textColor2 lg:flex lg:flex-col lg:items-center lg:overflow-hidden'>
+      <div className='grid grid-cols-2 gap-2 px-2 lg:grid lg:grid-cols-3 lg:gap-4'>
         {displayedProducts.map((product, displayIndex) => {
           const productIndex = (currentPage - 1) * itemsPerPage + displayIndex;
           return (
-            <div key={product.id} className='border rounded-lg border-spacing-4 w-52 h-96 p-4 shadow-xl'>
-              <img src={product.image} alt={product.name} className='w-44 h-52'/>
+            <div key={product.id} className='border rounded-lg border-spacing-2 w-40 h-60 p-2 shadow-xl 
+            lg:border lg:rounded-lg lg:border-spacing-4 lg:w-52 lg:h-96 lg:p-4 lg:shadow-xl'>
+              <img src={product.image} alt={product.name} className='w-20 h-24 lg:w-44 lg:h-52 '/>
               <p className='text-xs my-2'>{product.name}</p>
-              <div className='flex space-x-2 mb-4'>
+              <div className='flex space-x-2 mb-2 lg:mb-4'>
                 {['S', 'M', 'L', 'XL'].map((size) => (
                   <p
                     key={size}
@@ -84,18 +85,20 @@ const Body = ({ addToCart }) => {
                   </p>
                 ))}
               </div>
-              <p className='my-2 font-semibold'>${productStates[productIndex].totalCost.toFixed(2)}</p>
+              <p className='my-0 font-semibold lg:my-2 lg:font-semibold'>${productStates[productIndex].totalCost.toFixed(2)}</p>
               <div className='flex'>
-                  <div className='border rounded-lg border-spacing-4 w-full flex justify-center items-center text-xs border-textColor1'>
+                  <div className='border rounded-lg border-spacing-2 w-1/2 flex mb-2 lg:border lg:rounded-lg 
+                  lg:border-spacing-4 lg:w-full lg:flex 
+                  lg:justify-center lg:items-center lg:text-xs lg:border-textColor1'>
                     <button
-                      className='border-r px-2 py-1'
+                      className='px-1 py-0 border-r lg:border-r lg:px-2 lg:py-1'
                       onClick={() => handleQuantityChange(productIndex, -1)}
                     >
                       -
                     </button>
                     <span>{productStates[productIndex].quantity}</span>
                     <button
-                      className='border-l px-2 py-1'
+                      className='px-1 border-l py-0 lg:border-l lg:px-2 lg:py-1'
                       onClick={() => handleQuantityChange(productIndex, 1)}
                     >
                       +
@@ -104,7 +107,11 @@ const Body = ({ addToCart }) => {
                   </div>
                   <div>
                     <button
-                        className='border rounded-lg border-spacing-4 ml-4 w-28 h-8 text-center text-xs bg-textColor1 text-textColor2'
+                        className='border rounded-lg border-spacing-2 ml-2 w-16 h-6 text-wrap text-center 
+                        text-xs bg-textColor1 text-textColor2 lg:border lg:rounded-lg 
+                        lg:border-spacing-4 lg:ml-4 lg:w-28 lg:h-8 
+                        lg:text-center 
+                        lg:text-xs lg:bg-textColor1 lg:text-textColor2'
                         onClick={() => handleAddToCart(productIndex, product)}
                       >
                         Add to cart
@@ -115,7 +122,7 @@ const Body = ({ addToCart }) => {
           );
         })}
       </div>
-      <div className='flex justify-center mt-4'>
+      <div className='flex justify-center mt-2 mb-2 lg:mt-4'>
         <button
           className='px-3 py-1 mx-1 border rounded'
           onClick={() => handlePageChange(currentPage - 1)}

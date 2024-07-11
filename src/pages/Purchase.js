@@ -32,8 +32,8 @@ const Purchase = ({ cart, removeFromCart }) => {
 
   return (
     <>
-      <div className='w-full flex overflow-hidden bg-textColor2'>
-      <div className='flex flex-col justify-start items-center my-6 bg-textColor2 w-3/5'>
+      <div className='flex flex-col w-full lg:w-full lg:flex overflow-hidden bg-textColor2 sm: '>
+      <div className='flex flex-col justify-start items-center my-6 bg-textColor2 w-full lg:w-3/5'>
         <div className='h-auto p-4 w-full'>
           {cart.length === 0 ? (
             <p>No items in the cart.</p>
@@ -60,8 +60,8 @@ const Purchase = ({ cart, removeFromCart }) => {
           )}
         </div>
       </div>
-      <div className='flex flex-col justify-start items-center my-14 bg-textColor2 w-2/5'>
-        <div className='flex flex-col justify-between items-center border rounded-lg p-4 mx-4 w-full border-textColor1'>
+      <div className='flex flex-col justify-start items-center my-8 sm: px-4 lg:my-14 bg-textColor2 w-full lg:w-2/5'>
+        <div className='flex flex-col justify-between items-center border rounded-lg p-2 lg:p-4 mx-4 w-full border-textColor1'>
           <p className='font-semibold text-lg'>Order Summary</p>
           <div className='flex justify-between w-full mb-2'>
             <p className='text-lg font-semibold'>Subtotal:</p>
@@ -76,14 +76,14 @@ const Purchase = ({ cart, removeFromCart }) => {
             <p className='text-lg font-semibold'>${grandTotal.toFixed(2)}</p>
           </div>
           <span className='my-2'>
-            <button className='border rounded-lg bg-textColor1 w-[500px] h-8 text-textColor2 text-center'>
+            <button className='border rounded-lg bg-textColor1 w-[310px] lg:w-[500px] h-8 text-textColor2 text-center'>
               Proceed to Checkout
             </button>
           </span>
-          <span className='w-[500px] my-2'>
+          <span className='w-[310px] lg:w-[500px] my-2'>
             <p className='text-lg font-semibold'>Coupon Code</p>
           </span>
-          <span className='border rounded-lg border-textColor1 w-[500px] h-8'>
+          <span className='border rounded-lg border-textColor1 w-[310px] lg:w-[500px] h-8'>
             <input
               type='text'
               value={couponCode}
@@ -92,7 +92,7 @@ const Purchase = ({ cart, removeFromCart }) => {
               placeholder='Enter coupon code'
             />
           </span>
-          <span className='border rounded-lg border-textColor1 w-[500px] h-8 my-2'>
+          <span className='border rounded-lg border-textColor1 w-[310px] lg:w-[500px] h-8 my-2'>
             <button className='px-4 w-full h-full' onClick={handleApplyCoupon}>
               Apply Coupon
             </button>

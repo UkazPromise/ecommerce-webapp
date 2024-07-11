@@ -54,8 +54,8 @@ const Checkout = () => {
 
   return (
     <>
-      <div className='w-full flex overflow-hidden bg-textColor2'>
-        <div className='flex flex-col justify-start my-6 bg-textColor2 w-3/5 ml-8'>
+      <div className='w-full flex-col lg:flex overflow-hidden bg-textColor2'>
+        <div className='flex flex-col justify-start my-6 bg-textColor2 w-full lg:w-3/5 ml-0 lg:ml-8'>
           <p className='ml-6 my-4 font-bold text-lg'>
             <FontAwesomeIcon icon={faArrowLeftLong} className='pr-2' />
             CheckOut
@@ -101,7 +101,7 @@ const Checkout = () => {
                     name='country'
                     value={form.country}
                     onChange={handleChange}
-                    className='px-4 w-[470px] h-12 border rounded-lg border-black bg-textColor2'
+                    className='px-4 w-[350px] lg:w-[470px] h-12 border rounded-lg border-black bg-textColor2'
                   />
                   {errors.country && <span className='text-red-500 text-xs'>{errors.country}</span>}
                 </span>
@@ -116,7 +116,7 @@ const Checkout = () => {
                     name='streetAddress'
                     value={form.streetAddress}
                     onChange={handleChange}
-                    className='px-4 w-[470px] h-12 border rounded-lg border-black bg-textColor2'
+                    className='px-4 w-[350px] lg:w-[470px] h-12 border rounded-lg border-black bg-textColor2'
                   />
                   {errors.streetAddress && <span className='text-red-500 text-xs'>{errors.streetAddress}</span>}
                 </span>
@@ -159,7 +159,7 @@ const Checkout = () => {
                     name='postalCode'
                     value={form.postalCode}
                     onChange={handleChange}
-                    className='px-4 w-[470px] h-12 border rounded-lg border-black bg-textColor2'
+                    className='px-4 w-[350px] lg:w-[470px] h-12 border rounded-lg border-black bg-textColor2'
                   />
                   {errors.postalCode && <span className='text-red-500 text-xs'>{errors.postalCode}</span>}
                 </span>
@@ -174,7 +174,7 @@ const Checkout = () => {
                     name='email'
                     value={form.email}
                     onChange={handleChange}
-                    className='px-4 w-[470px] h-12 border rounded-lg border-black bg-textColor2'
+                    className='px-4 w-[350px] lg:w-[470px] h-12 border rounded-lg border-black bg-textColor2'
                     placeholder='example@example.com'
                   />
                   {errors.email && <span className='text-red-500 text-xs'>{errors.email}</span>}
@@ -191,15 +191,15 @@ const Checkout = () => {
                     rows='3'
                     value={form.orderNote}
                     onChange={handleChange}
-                    className='px-4 w-[470px] h-12 rounded-lg bg-textColor2 border border-black'
+                    className='px-4 w-[350px] lg:w-[470px] h-12 rounded-lg bg-textColor2 border border-black'
                   ></textarea>
                 </span>
               </div>
             </div>
           </div>
         </div>
-        <div className='flex flex-col justify-start items-center my-12 bg-textColor2 w-2/5 mr-8'>
-          <div className='flex flex-col justify-between items-center border rounded-lg p-4 mx-4 w-full border-textColor1'>
+        <div className='flex flex-col justify-center items-center lg:justify-start lg:items-center my-12 bg-textColor2 w-full lg:w-2/5 lg:mr-8'>
+          <div className='flex flex-col justify-center lg:justify-between items-center border rounded-lg p-2 lg:p-4 lg:mx-4 w-full border-textColor1'>
             <p className='font-semibold text-lg'>Order Summary</p>
             <div className='flex justify-between w-full mb-2'>
               <p className='text-lg font-semibold'>Subtotal:</p>
